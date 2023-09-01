@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Calculator - Odin Project</title>
+
+  <!-- Preconnects and Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Styles and Scripts -->
+  <link rel="stylesheet" href="styles.css">
+  <script src="calculator.js" defer></script>
+  <script src="footer.js" defer></script>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="images/favicon-32x32.png" type="image/x-icon">
+</head>
+
+<body>
+
+  <!-- Main Wrapper -->
+  <div class="wrapper">
+
+    <!-- Navbar -->
+    <div class="navbar">
+      <a href="https://github.com/Sylvarr" target="_blank" rel="noopener">
+        <img src="./images/github.png" alt="GitHub Logo" class="github-img">
+        <span class="github-text">GitHub</span>
+      </a>
+    </div>
+
+    <!-- Content Container -->
+    <div class="parent-container">
+
+      <h2>A Simple Calculator</h2>
+      <p>You can use this as a component for your page if you'd like.</p>
+
+      <!-- Calculator and Image Container -->
+      <div class="big-container">
+
+        <!-- Calculator -->
+        <div id="calculator-container">
+          <div class="calculator">
+            <!-- Displays -->
+            <button class="display display1">
+              <p></p>
+            </button>
+            <button class="display display2">
+              <p></p>
+            </button>
+
+            <!-- Control Buttons -->
+            <button class="button-30 c" value="c">C</button>
+            <button class="button-30 ce" value="ce">CE</button>
+
+            <!-- Number Buttons -->
+            <button class="button-30 number" value="1">1</button>
+            <button class="button-30 number" value="2">2</button>
+            <button class="button-30 number" value="3">3</button>
+            <button class="button-30 number" value="4">4</button>
+            <button class="button-30 number" value="5">5</button>
+            <button class="button-30 number" value="6">6</button>
+            <button class="button-30 number" value="7">7</button>
+            <button class="button-30 number" value="8">8</button>
+            <button class="button-30 number" value="9">9</button>
+            <button class="button-30 number" value="0">0</button>
+
+            <!-- Operator Buttons -->
+            <button class="button-30 operator" value="*">*</button>
+            <button class="button-30 operator" value="/">/</button>
+            <button class="button-30 operator" value="-">-</button>
+            <button class="button-30 operator" value="+">+</button>
+
+            <!-- Dot and Equal -->
+            <button class="button-30 dot" value=".">.</button>
+            <button class="button-30 numequal" value="=">=</button>
+          </div>
+        </div>
+
+        <!-- Image -->
+        <div class="image">
+          <img src="images/math.png" alt="Math Doodle" class="img-math">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p class="final-message">Please visit The Odin Project.</p>
+    <p class="copyright"></p>
+  </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,143 @@
+/* Base Variables */
+:root {
+  --main-font: "Source Code Pro", monospace;
+  --main-bg-gradient: linear-gradient(
+    to right top,
+    #d16ba5,
+    #c777b9,
+    #ba83ca,
+    #aa8fd8,
+    #9a9ae1,
+    #8aa7ec,
+    #79b3f4,
+    #69bff8,
+    #52cffe,
+    #41dfff,
+    #46eefa,
+    #5ffbf1
+  );
+  --text-white: white;
+  --text-gradient: linear-gradient(#0969ae, #9f1010);
+}
+
+/* Base Styles */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: var(--main-bg-gradient);
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: var(--main-font);
+}
+
+/* Font Size Adjustments */
+@media (min-width: 48em) {
+  :root {
+    font-size: calc(1rem + ((1vw - 0.48rem) * 0.6944));
+  }
+}
+@media (min-width: 120em) {
+  :root {
+    font-size: 1.5rem;
+  }
+}
+
+/* Common Layout */
+.wrapper,
+.parent-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background-image: inherit;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  flex-direction: row-reverse;
+  max-width: 1900px;
+  margin-inline: auto;
+  height: 80px;
+  margin-bottom: 3rem;
+}
+
+/* Links */
+a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* Github Styles */
+.github-img,
+.github-text {
+  margin: 1rem;
+  color: var(--text-white);
+  font-size: 1.3rem;
+}
+.github-img {
+  width: 3rem;
+}
+
+/* Footer */
+footer {
+  width: 100%;
+  height: 70px;
+}
+.copyright {
+  font-size: 15px;
+  background: var(--text-gradient);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+}
+
+/* Other Styles */
+.img-math {
+  width: 17rem;
+  opacity: 80%;
+}
+.big-container {
+  max-width: 1000px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+h2,
+p {
+  color: var(--text-white);
+  text-align: center;
+  margin: 0 30px;
+}
+.final-message {
+  background: var(--text-gradient);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+}
+
+/* Mobile-specific */
+@media only screen and (max-width: 600px) {
+  .big-container {
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+  }
+  .img-math {
+    margin-top: 4rem;
+    margin-bottom: 6rem;
+  }
+}
