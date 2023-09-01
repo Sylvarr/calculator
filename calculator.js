@@ -65,7 +65,7 @@ class Calculator {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(7, 1fr);
   margin-left: 0.5rem;
-  width: 11rem;
+  width: 13em;
   height: 17rem;
   border-radius: 5px;
   border: 4px outset white;
@@ -248,7 +248,9 @@ class Calculator {
     // When we push dot
     this.dot.addEventListener("click", () => {
       if (this.hasResult && this.isEmpty(this.operator)) {
-        this.a = this.a + ".";
+        if (!this.a.includes(".")) {
+          this.a = this.a + ".";
+        }
         this.hasResult = false;
         this.display2.textContent = this.a;
         return;
