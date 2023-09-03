@@ -229,6 +229,14 @@ class Calculator {
           return;
         }
         if (!this.isEmpty(this.a) && this.a !== "-") {
+          if (!this.isEmpty(this.b)) {
+            let result = this.operate();
+            if (!this.isInt(result)) {
+              result = result.toFixed(2);
+            }
+            this.a = String(result);
+            this.b = "";
+          }
           this.operator = clickedOperator;
           this.display2.textContent = `${this.a} ${this.operator}`;
         }
