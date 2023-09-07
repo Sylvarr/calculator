@@ -65,7 +65,7 @@ class Calculator {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(7, 1fr);
   margin-left: 0.5rem;
-  width: 13em;
+  width: 11rem;
   height: 17rem;
   border-radius: 5px;
   border: 4px outset white;
@@ -179,6 +179,7 @@ class Calculator {
   border: rgba(31, 38, 135, 0.37);
   height: 2.6rem;
   font-size: 1.1rem;
+  text-align: right;
 }
     `;
     const styleSheet = document.createElement("style");
@@ -203,14 +204,24 @@ class Calculator {
     this.numbers.forEach((number) => {
       number.addEventListener("click", (e) => {
         let clickedValue = e.target.value;
+
         if (this.hasResult && this.operator === "") {
           this.resetCalculator();
         }
+
+        let target = this.isEmpty(this.operator) ? this.a : this.b;
+
+        if (target.length >= 6) return;
+
+        if (target === "0" && clickedValue === "0") return;
+        if (target === "0" && clickedValue !== "0") target = clickedValue;
+        else target += clickedValue;
+
         if (this.isEmpty(this.operator)) {
-          this.a += clickedValue;
+          this.a = target;
           this.display2.textContent = this.a;
         } else {
-          this.b += clickedValue;
+          this.b = target;
           this.display2.textContent = `${this.a} ${this.operator} ${this.b}`;
         }
       });
@@ -246,6 +257,8 @@ class Calculator {
     // When we push equal sign
     this.equal.addEventListener("click", () => {
       let result = this.operate();
+      if (result === "Error") return;
+
       this.hasResult = true;
       if (!this.isInt(result)) {
         result = result.toFixed(2);
@@ -336,8 +349,9 @@ class Calculator {
 
   divide() {
     if (this.b === "0") {
-      alert("You can't divide by zero!");
-      return;
+      this.resetCalculator();
+      this.display2.textContent = "Error";
+      return "Error";
     }
     return Number(this.a) / Number(this.b);
   }
@@ -356,6 +370,7 @@ class Calculator {
         break;
       case "/":
         result = this.divide();
+        if (result === "Error") return;
         break;
       default:
         return;
