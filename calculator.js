@@ -375,6 +375,11 @@ class Calculator {
       default:
         return;
     }
+
+    if (Math.abs(result) > 1e6 || (Math.abs(result) < 1e-6 && result !== 0)) {
+      result = result.toExponential(4);
+    }
+
     return result;
   }
 
